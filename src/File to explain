@@ -1,0 +1,3 @@
+The five python files are the programs to scrape the required data from website through beautifulsoup and VPI.
+The scraped data is in /data folder.
+The main program is Bingxu_Chen_hw5.py and others are functions and classes that the main file will call in executing process.
