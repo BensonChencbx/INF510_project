@@ -1,0 +1,33 @@
+1. What are the strengths of your data modeling format?
+It can obtain the rerurn and the performance of any two funds you choose as long as you have their abbreviations of the name. You will get a form which contians the return and performance of the portfolio (two funds and 3-months treasury of U.S.) and each asset seperately to compare which one performs better on U.S.'s capital market.
+
+2. What are the weaknesses?  (Does your data model support?  Sorting the information? Re-ordering it? Only obtaining a certain subset of the information?) 
+My model use the close price and rate of the former day to replace the non-available value so I think it might cause some small inaccuracy of my result. Also, my model ignores the trading cost and time cost, which means that the model assumes you can buy and sell the asset at the price you see immediately, but actually that's impossible and you might have some loss in the trading process.
+
+3. How do you store your data on disk? 
+I store them as a .txt file in the end as well as .csv file in the zip file.
+
+4. Let’s say you find another data source that relates to all 3 of your data sources (i.e. a data source that relates to your existing data).  How would you extend your model to include this new data source?  How would that change the interface?
+My model can obtain any fund on the capital market when you input different abbreviation of their names at the begining of the code. It will find the shorter one of the fund period between two funds and use this shorter time to scrape the 3-months U.S. treasury rate from website at the same period. Then the model will calculate their performance and total return of whole portfolio as well as each asset. I think I will modify the begining part to add an input function to fit my idea properly.
+
+5. How would you add a new attribute to your data (i.e. imagine you had a lat/long column in a database.  You might use that to access an API to get a city name.  How would you add city name to your data?) 
+First, I should extract the lat/long column from my database and add them to the request by changing the code of accessing an API. Then, I should get the returned information into the new blank column at my database
+
+
+
+The time period is calculated as the shorter one of the two funds which is 16.0 years
+
+Then we scraped the 3-months treasury bill from the website according to the period
+
+Then we get the 3 frames of three assets and the total frame of them and save them in Result_excel file in the end
+
+Then we could calculate the return rates seperately and calculate the weight of investing them according to their performance every 5 days and save these data in Result_csv file
+
+Finally, we can get the result of their return among the period and calculate the excess return per risk share each year
+
+That means the final multiple of your capital has gained and the multiple your capital has gained each year if you invest this asset in the begining
+
+The return of portfolio is 1.5067 and the excess return per risk share each year is 1.2087
+The return of active fund is 4.5895 and the excess return per risk share each year is 8.4905
+The return of passive fund is 2.5616 and the excess return per risk share each year is 1.9734
+The return of treasury bill is 1.0228 and the excess return per risk share each year is 0.2572
