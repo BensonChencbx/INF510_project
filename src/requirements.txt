@@ -1,0 +1,10 @@
+alpha_vantage
+urlopen
+lxml
+xlsxwriter
+pandas
+numpy
+datetime
+matplotlib
+requests
+beautifulsoup4
