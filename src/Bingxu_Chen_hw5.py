@@ -177,10 +177,10 @@ result3 = round(result3, 4)
 treasury_sharp = round(treasury_sharp, 4)
 print(f'The return of treasury bill is {result3} and the excess return per risk share is {treasury_sharp}')
 
-# step 5 -- store the result into txt file and csv file
+# step 5 -- store the result into txt file and excel file
 import os
 os.getcwd()
-with open('Result_txt.txt', 'w') as t:
+with open('..//data//Result_txt.txt', 'w') as t:
     t.write("1. What are the strengths of your data modeling format?"+'\n'+"It can obtain the rerurn and the performance of any two funds you choose as long as you have their abbreviations of the name. You will get a form which contians the return and performance of the portfolio (two funds and 3-months treasury of U.S.) and each asset seperately to compare which one performs better on U.S.'s capital market."+'\n\n')
     t.write("2. What are the weaknesses?  (Does your data model support?  Sorting the information? Re-ordering it? Only obtaining a certain subset of the information?) "+'\n'+"My model use the close price and rate of the former day to replace the non-available value so I think it might cause some small inaccuracy of my result. Also, my model ignores the trading cost and time cost, which means that the model assumes you can buy and sell the asset at the price you see immediately, but actually that's impossible and you might have some loss in the trading process."+'\n\n')
     t.write("3. How do you store your data on disk? "+'\n'+"I store them as a .txt file in the end as well as .csv file in the zip file."+'\n\n')
@@ -199,7 +199,7 @@ with open('Result_txt.txt', 'w') as t:
     t.write(f'The return of treasury bill is {result3} and the excess return per risk share each year is {treasury_sharp}'+'\n')
     t.close()
 
-writer = pd.ExcelWriter('Result_excel.xlsx', engine='xlsxwriter')
+writer = pd.ExcelWriter('..//data//Result_excel.xlsx', engine='xlsxwriter')
 
 active_frame.to_excel(writer, sheet_name='Active_Frame')
 passive_frame.to_excel(writer, sheet_name='Passive_Frame')
@@ -217,3 +217,28 @@ rate_weight.columns = ['rate1', 'rate2', 'rate3', 'weight1', 'weight2', 'weight3
 rate_weight.to_excel(writer, sheet_name='Rate_Weight')
 
 writer.save()
+
+# step 6 -- visualization
+excel_path = '..//data//Result_excel.xlsx'
+Total_Frame = pd.read_excel(excel_path, sheet_name = 'Total_Frame')
+
+import matplotlib.pyplot as plt
+
+x_data = Total_Frame['Date']
+y_data1 = Total_Frame['Price']
+y_data2 = Total_Frame['New_Price']
+plt.figure(figsize=(10, 5), dpi= 80, facecolor='w', edgecolor='k')
+plt.plot(x_data, y_data1, x_data, y_data2)
+plt.xlabel('Date')
+plt.ylabel('Active_Fund_Price & Passive_Fund_Price')
+plt.title('Active_Fund_Price & Passive_Fund_Price among 16 years')
+plt.show()
+
+x_data = Total_Frame['Date']
+y_data = Total_Frame['Treasury_Rate']
+plt.figure(figsize=(10, 5), dpi= 80, facecolor='w', edgecolor='k')
+plt.plot(x_data, y_data)
+plt.xlabel('Date')
+plt.ylabel('3-months_Treasury_Rate')
+plt.title('3-months_Treasury_Rate among 16 years')
+plt.show()
