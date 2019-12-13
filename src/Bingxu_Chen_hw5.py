@@ -227,7 +227,7 @@ import matplotlib.pyplot as plt
 x_data = Total_Frame['Date']
 y_data1 = Total_Frame['Price']
 y_data2 = Total_Frame['New_Price']
-plt.figure(figsize=(10, 5), dpi= 80, facecolor='w', edgecolor='k')
+plt.figure(1, figsize=(10, 5), dpi= 80, facecolor='w', edgecolor='k')
 plt.plot(x_data, y_data1, x_data, y_data2)
 plt.xlabel('Date')
 plt.ylabel('Active_Fund_Price & Passive_Fund_Price')
@@ -236,7 +236,7 @@ plt.show()
 
 x_data = Total_Frame['Date']
 y_data = Total_Frame['Treasury_Rate']
-plt.figure(figsize=(10, 5), dpi= 80, facecolor='w', edgecolor='k')
+plt.figure(2, figsize=(10, 5), dpi= 80, facecolor='w', edgecolor='k')
 plt.plot(x_data, y_data)
 plt.xlabel('Date')
 plt.ylabel('3-months_Treasury_Rate')
