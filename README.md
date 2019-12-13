@@ -1,4 +1,6 @@
 # INF510_project
+The file "Chen_Bingxu.ipynb" is in /src folder
+
 For /src folder:
 
 The five python files are the programs to scrape the required data from website through beautifulsoup and VPI.
