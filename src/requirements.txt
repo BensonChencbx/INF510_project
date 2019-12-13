@@ -2,6 +2,7 @@ alpha_vantage
 urlopen
 lxml
 xlsxwriter
+xlrd
 pandas
 numpy
 datetime
