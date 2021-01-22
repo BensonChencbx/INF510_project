@@ -3,7 +3,7 @@ The file "Chen_Bingxu.ipynb" is in /src folder
 
 For /src folder:
 
-The five python files are the programs to scrape the required data from website through beautifulsoup and VPI.
+The five python files are the programs to scrape the required data from website through beautifulsoup and API.
 The main program is Bingxu_Chen_hw5.py and others are functions and classes that the main file will call in executing process.
 
 For /data folder:
